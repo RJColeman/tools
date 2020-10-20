@@ -18,8 +18,9 @@ For each line in the provided file, this script will:
 4. if page not found or content matches, prints tab delimited output detailing findings 
 
 To use the script:
-
+```
 usage: python findDefaultPages.py -h or python findDefaultPages.py -f [file]
      -h --help:     display help info
      -f --file:     path to file containing urls or ip addresses to query for default webserver pages
+```
 
