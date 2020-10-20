@@ -12,8 +12,8 @@ Python script that accepts a file as input which should contain one IP address o
 
 For each line in the provided file, this script will:
 
-1. attempt to access http://[ip or url]/
-2. pull down content found at http://[ip or url]/
+1. attempt to access http://[ip or url] and https://[ip or url]
+2. pull down content found at http://[ip or url] and https://[ip or url]
 3. check if content matches known default server web pages
 4. if page not found or content matches, prints tab delimited output detailing findings 
 
