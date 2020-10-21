@@ -1,0 +1,53 @@
+from string import ascii_lowercase
+from string import ascii_uppercase
+import urllib.request
+import urllib.parse
+from socket import timeout
+
+# populated from create-attack.py
+protocol = '%%PROTO%%' 
+url = '%%URL%%' 
+port = '%%PORT%%'
+
+# build url with protocol and port
+url = protocol + '://' + url
+if port:
+  url = url + ':' + str(port)
+
+# edit the data sent via post
+post_data = urllib.parse.urlencode({'field1': 'value1', 'field2': 'value2'}).encode('ascii')
+
+# set up headers based on data from create-attack.py
+headers = {}
+cookie = '%%COOKIE%%'
+authorization = '%%AUTH%%'
+if cookie:
+    headers['COOKIE'] = cookie
+
+if authorization:
+    headers['Authorization'] = authorization 
+
+# make sure connection works
+try: 
+    req = urllib.request.Request(url=url, data=post_data, headers=headers)
+    resp = urllib.request.urlopen(req, timeout=3)
+except timeout:
+    print('Timeout error against url: ' + str(url))
+    exit()
+except Exception as e:
+    print('Against url: ' + str(url))
+    print('Other error: ' + str(e))
+    exit()
+
+# check contents for particular content
+contents = resp.read()
+if contents.find(b'STRING TO SEARCH FOR')==-1:
+    print('content found') 
+
+
+def main():
+    print(url)
+    # NEEDS CODE TO PERFORM ATTACK NOW THAT WE HAVE URL AND CONNECTION CODE AVAILABLE
+
+if __name__ == "__main__":
+    main()
