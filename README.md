@@ -6,7 +6,7 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 # Tools
 
-## findDefaultPages.py 
+## osint/findDefaultPages.py 
 
 Python3 script that accepts a file as input which should contain one IP address or one URL per line
 
@@ -20,10 +20,14 @@ For each line in the provided file, this script will:
 To use the script:
 ```
 usage: python findDefaultPages.py -h or python findDefaultPages.py -f [file]
+
      -h --help:     display help info
+     -r --reverse:  only print URLs or IP addresses where content was found but not default webserver pages
      -f --file:     path to file containing urls or ip addresses to query for default webserver pages
 ```
-## createAttack.py
+## attack/createAttack.py
+
+> NOTE: This is a work in progress. It's usable but needs improvement to be more friendly.
 
 Python3 script that generates the beginning of an attack script against the url provided. The script uses attack.py.tmpl, replacing variables in the tmpl file with values provided in call to createAttack.py. Once script is created, user should open new script and complete the attack code as outlined in the new script. 
 
