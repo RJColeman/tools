@@ -8,6 +8,7 @@ import os
 protocol = 'http' 
 url = None
 port = '' 
+page = ''
 
 cookie =  ''
 auth = '' 
@@ -16,9 +17,9 @@ verbose = ''
 script = None
 
 def setOpts():
-    global protocol, url, port, cookie, auth, script
-    flags = "vhp:u:o:c:a:s:"
-    longflags = ["help", "protocol=", "url=", "port=", "cookie=", "auth=", "script="]
+    global protocol, url, port, page, cookie, auth, script
+    flags = "vhp:u:o:c:a:s:g:"
+    longflags = ["help", "protocol=", "url=", "port=", "cookie=", "auth=", "script=", "page="]
     try:
         opts, args = getopt.getopt(sys.argv[1:], flags, longflags)
     except getopt.GetoptError as err:
@@ -33,6 +34,8 @@ def setOpts():
         elif o in ("-h", "--help"):
             usage()
             sys.exit()
+        elif o in ("-g", "--page"):
+            page = a
         elif o in ("-p", "--protocol"):
             if a not in ('ftp', 'http', 'https'):
                 print("Invalid protocol. Valid values are ftp, http, https.")
@@ -103,6 +106,9 @@ def main():
         elif '%%AUTH%%' in line:
             print(line.replace('%%AUTH%%', auth), end="")
 
+        elif '%%PAGE%%' in line:
+            print(line.replace('%%PAGE%%', page), end="")
+
         else:
             print(line, end="")
 
@@ -117,6 +123,7 @@ def usage():
     print('     -u --url:      required url of target site or page ie www.somesite.com')
     print('     -p --protocol: protocol ie http, ftp, https')
     print('     -o --port:     port ie 80, 443, 8080')
+    print('     -g --page:     page to hit on the site ie "path/to/page.php')
     print('     -c --cookie:   cookie value ie PHPSESSID=XXX999XXX')
     print('     -a --auth:     value of Authorization header')
     print('')
@@ -124,11 +131,13 @@ def usage():
     print('')
     print("     createAttack.py -u 'www.someurl.com' \\")
     print("                      -p 'http'  \\")
+    print("                      -g 'path/to/page.php'  \\")
     print("                      -a 'Basic bmSomeBasicAuthStringGoesHere9999XXXXXN0TlZrbXhkazM5Sg==' \\")
     print("                      -s attack.py") 
     print('')
     print("     createAttack.py --url 'www.someurl.com' \\")
     print("                      --protocol 'http'  \\")
+    print("                      --page 'path/to/page.php'  \\")
     print("                      --auth 'Basic bmSomeBasicAuthStringGoesHere9999XXXXXN0TlZrbXhkazM5Sg==' \\")
     print("                      --script attack.py") 
     print('')
