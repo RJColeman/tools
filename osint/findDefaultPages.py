@@ -16,12 +16,13 @@ terms = {
     # debian/ubuntu apache
     b'Apache2 server after installation on Debian systems' : 'Default page Found' + "\t" + 'Apache2 on Debian/Ubuntu',
     b'The initial installation of Debian/GNU Apache' : 'Default page found  ' + "\t" + 'Apache Unknown Version',
-    # apache
     b'Apache2 server after installation on Ubuntu systems' : 'Default page Found' + "\t" + 'Apache2 on Debian/Ubuntu',
-    b'Apache 2 Test Page' : 'Default page found' + "\t" + 'Apache 2 running',
-    b'Apache Server Status' : 'Default page found' + "\t" + 'Apache Unknown Version',
+    # fedora apache
     b'Apache HTTP Server on Fedora Core'  : 'Default page found' + "\t" + 'Outdated Apache 2.0 on Fedora',
     b'Fedora Core Test Page' : 'Default page found' + "\t" + 'Outdated Apache 2.0 on Fedora',
+    # apache
+    b'Apache 2 Test Page' : 'Default page found' + "\t" + 'Apache 2 running',
+    b'Apache Server Status' : 'Default page found' + "\t" + 'Apache Unknown Version',
     b'Apache/2.0.* (Linux/SuSE)' : 'Default page found' + "\t" + 'Outdated Apache2.0 on Linux SuSE' ,
     b'xampp/index'  : 'Default page found' + "\t" + 'Xampp',
     b'Test Page for Apache' : 'Default page found  ' + "\t" + 'Outdated Apache Unknown Version',

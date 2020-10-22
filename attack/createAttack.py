@@ -16,6 +16,7 @@ verbose = ''
 
 script = None
 
+# uses command line options to set global variables
 def setOpts():
     global protocol, url, port, page, cookie, auth, script
     flags = "vhp:u:o:c:a:s:g:"
@@ -29,6 +30,7 @@ def setOpts():
         sys.exit(2)
     optsSet = True
     for o, a in opts:
+        # verbose is not currently in use
         if o == "-v":
             verbose = True
         elif o in ("-h", "--help"):
@@ -130,16 +132,16 @@ def usage():
     print('Example usage creates a scipt called attack.py:') 
     print('')
     print("     createAttack.py -u 'www.someurl.com' \\")
-    print("                      -p 'http'  \\")
-    print("                      -g 'path/to/page.php'  \\")
-    print("                      -a 'Basic bmSomeBasicAuthStringGoesHere9999XXXXXN0TlZrbXhkazM5Sg==' \\")
-    print("                      -s attack.py") 
+    print("                     -p 'http'  \\")
+    print("                     -g 'path/to/page.php'  \\")
+    print("                     -a 'Basic bmSomeBasicAuthStringGoesHere9999XXXXXN0TlZrbXhkazM5Sg==' \\")
+    print("                     -s attack.py") 
     print('')
     print("     createAttack.py --url 'www.someurl.com' \\")
-    print("                      --protocol 'http'  \\")
-    print("                      --page 'path/to/page.php'  \\")
-    print("                      --auth 'Basic bmSomeBasicAuthStringGoesHere9999XXXXXN0TlZrbXhkazM5Sg==' \\")
-    print("                      --script attack.py") 
+    print("                     --protocol 'http'  \\")
+    print("                     --page 'path/to/page.php'  \\")
+    print("                     --auth 'Basic bmSomeBasicAuthStringGoesHere9999XXXXXN0TlZrbXhkazM5Sg==' \\")
+    print("                     --script attack.py") 
     print('')
 
 if __name__ == "__main__":
