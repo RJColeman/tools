@@ -1,4 +1,4 @@
-> :warning: :warning: :warning: WARNING: As with any and all hacking or penetration testing tools, these should never be used against sites, networks, or technology you do not own and do not have express premission to run them against. If run against entities for which you do not have documented permission to attack, you could face criminal charges. 
+> :warning: :warning: WARNING :warning: :warning: As with any and all hacking or penetration testing tools, these should never be used against sites, networks, or technology you do not own and do not have express premission to run them against. If run against entities for which you do not have documented permission to attack, you could face criminal charges. 
 
 # Licensing
 

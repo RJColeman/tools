@@ -35,7 +35,11 @@ terms = {
     b'alt="IIS7"'  : 'Possible Default page found  ' + "\t" + 'Likely IIS7',
     b'Welcome.png'  : 'Possible Default page found  ' + "\t" + 'Likely IIS Unknown Version',
     # advx
-    b'Welcome to the Advanced Extranet' : 'Default page found'  + "\t" + 'ADVX '
+    b'Welcome to the Advanced Extranet' : 'Default page found'  + "\t" + 'ADVX ',
+    # apache tomcat
+    b"If you're seeing this, you've successfully installed Tomcat" : 'Default page found' + "\t" + 'Apache Tomcat',
+    # apache axis
+    b'Welcome to the new generation of Axis' : 'Default page found' + "\t" + 'Apache Axis application server'
 }
 
 # get command line arguments
