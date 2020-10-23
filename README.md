@@ -39,29 +39,31 @@ The benefit of using createAttack.py is import statements are written, url reque
 usage: createAttack.py -h
        createAttack.py -u [url] -s [scriptname.py]
 
-     -h --help:     display help info
+options:
 
-     -s --script:   required name of script to create
-     -u --url:      required url of target site or page ie www.somesite.com
-     -p --protocol: protocol ie http, ftp, https
-     -o --port:     port ie 80, 443, 8080
-     -g --page:     page to hit on the site ie "path/to/page.php
-     -c --cookie:   cookie value ie PHPSESSID=XXX999XXX
-     -a --auth:     value of Authorization header
+    -h --help:     display help info
+
+    -s --script:   required name of script to create
+    -u --url:      required url of target site or page ie www.somesite.com
+    -p --protocol: protocol ie http, ftp, https
+    -o --port:     port ie 80, 443, 8080
+    -g --page:     page to hit on the site ie "path/to/page.php
+    -c --cookie:   cookie value ie PHPSESSID=XXX999XXX
+    -a --auth:     value of Authorization header
 
 Example usage creates a scipt called attack.py:
 
      createAttack.py -u 'www.someurl.com' \
-                      -p 'http'  \
-                      -g 'path/to/page.php'  \
-                      -a 'Basic bmSomeBasicAuthStringGoesHere9999XXXXXN0TlZrbXhkazM5Sg==' \
-                      -s attack.py
+                     -p 'http'  \
+                     -g 'path/to/page.php'  \
+                     -a 'Basic bmSomeBasicAuthStringGoesHere9999XXXXXN0TlZrbXhkazM5Sg==' \
+                     -s attack.py
 
      createAttack.py --url 'www.someurl.com' \
-                      --protocol 'http'  \
-                      --page 'path/to/page.php'  \
-                      --auth 'Basic bmSomeBasicAuthStringGoesHere9999XXXXXN0TlZrbXhkazM5Sg==' \
-                      --script attack.py
+                     --protocol 'http'  \
+                     --page 'path/to/page.php'  \
+                     --auth 'Basic bmSomeBasicAuthStringGoesHere9999XXXXXN0TlZrbXhkazM5Sg==' \
+                     --script attack.py
 
 
 ```
