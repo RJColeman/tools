@@ -50,6 +50,9 @@ options:
     -g --page:     page to hit on the site ie "path/to/page.php
     -c --cookie:   cookie value ie PHPSESSID=XXX999XXX
     -a --auth:     value of Authorization header
+    -t --agent:    value of User-Agent header; default is:
+
+    Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0
 
 Example usage creates a scipt called attack.py:
 

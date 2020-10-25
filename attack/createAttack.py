@@ -12,15 +12,16 @@ page = ''
 
 cookie =  ''
 auth = '' 
+user_agent = ''
 verbose = '' 
 
 script = None
 
 # uses command line options to set global variables
 def setOpts():
-    global protocol, url, port, page, cookie, auth, script
-    flags = "vhp:u:o:c:a:s:g:"
-    longflags = ["help", "protocol=", "url=", "port=", "cookie=", "auth=", "script=", "page="]
+    global protocol, url, port, page, cookie, auth, script, user_agent
+    flags = "vhp:u:o:c:a:s:g:t:"
+    longflags = ["help", "protocol=", "url=", "port=", "cookie=", "auth=", "script=", "page=", "agent="]
     try:
         opts, args = getopt.getopt(sys.argv[1:], flags, longflags)
     except getopt.GetoptError as err:
@@ -64,6 +65,8 @@ def setOpts():
             if re.match(r'^[\s;:=a-zA-Z0-9]+$', auth) is None:
                 print('Malformed auth value: can contain spaces ; : = a-zA-Z0-9')
                 optsSet = False
+        elif o in ("-t", "--agent"):
+            user_agent = a
         elif o in ("-s", "--script"):
             script = a
             if re.match(r'^[a-zA-Z0-9]+\.py$', script) is None:
@@ -111,6 +114,9 @@ def main():
         elif '%%PAGE%%' in line:
             print(line.replace('%%PAGE%%', page), end="")
 
+        elif '%%USER-AGENT%%' in line:
+            print(line.replace('%%USER-AGENT%%', user_agent), end="")
+
         else:
             print(line, end="")
 
@@ -128,6 +134,9 @@ def usage():
     print('     -g --page:     page to hit on the site ie "path/to/page.php')
     print('     -c --cookie:   cookie value ie PHPSESSID=XXX999XXX')
     print('     -a --auth:     value of Authorization header')
+    print('     -t --agent:    value of User-Agent header; default is:')
+    print('')
+    print('     Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0') 
     print('')
     print('Example usage creates a scipt called attack.py:') 
     print('')
