@@ -27,9 +27,9 @@ def attack(url, payload):
 
     # possibly allow user to randomize user_agent values in future updates
     if user_agent:
-        header['User-Agent'] = user_agent
+        headers['User-Agent'] = user_agent
     else:
-        header['User-Agent'] = 'Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0'
+        headers['User-Agent'] = 'Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0'
 
     # make sure connection works
     try: 
