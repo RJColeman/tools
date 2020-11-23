@@ -54,8 +54,6 @@ def setOpts():
     try:
         opts, args = getopt.getopt(sys.argv[1:], flags, longflags)
     except getopt.GetoptError as err:
-        print()
-        print(str(err))
         usage(2)
 
     for o, a in opts:
@@ -66,33 +64,40 @@ def setOpts():
             ifile = a
             # if file provided is not an actual file
             if not path.isfile(ifile):
-                assert False, "ERROR: invalid file provided to -f or --file argument; for usage info python findDefaultPages.py -h"
+                print("\nERROR: invalid file provided to -f or --file argument; for usage info python findDefaultPages.py -h")
+                usage(0)
         elif o in ("-r", "--reverse"):
             reverse = True
         else:
-            assert False, "ERROR: unhandled option; for usage info python findDefaultPages.py -h"
+            print("\nERROR: unhandled option; for usage info python findDefaultPages.py -h")
+            usage(0)
 
     if not ifile:
-        assert False, "ERROR: no file provided via -f or --file argument; for usage info python findDefaultPages.py -h"
+        print("\nERROR: no file provided via -f or --file argument; for usage info python findDefaultPages.py -h")
+        usage(0)
 
 
 # print usage message 
 def usage(ecode):
-    print()
-    print('usage: python findDefaultPages.py -h or python findDefaultPages.py -f [file]')
-    print()
-    print('     -h --help:     display help info')
-    print('     -r --reverse:  only print URLs or IP addresses where content was found but not default webserver pages')
-    print('     -f --file:     path to file containing urls or ip addresses to query for default webserver pages')
-    print()
+    usage = """
+
+    usage: python findDefaultPages.py -h or python findDefaultPages.py -f [file]
+    
+         -h --help:     display help info
+         -r --reverse:  only print URLs or IP addresses where content was found but not default webserver pages
+         -f --file:     path to file containing urls or ip addresses to query for default webserver pages
+
+    """
+    print(usage)
     sys.exit(ecode)
 
 def search():
-    print()
-    print()
-    print("****************** START ****************************")
-    print()
-    print()
+    startm = """
+    
+    ****************** START ****************************
+    
+    """ 
+    print(startm)
     global terms, stats 
     protocols = ['http','https'] 
     url = '' 
@@ -138,9 +143,11 @@ def search():
             if not found:
                 print(url + "\t Content found not likely default pages")
                 stats['Not Founds'] += 1
-    print()
-    print()
-    print("******************* END *****************************")
+    endm = """
+    
+    ******************* END *****************************
+
+    """
 
 def printStats():
     print('Script encountered ' + str(stats['404s']) + ' 404 error(s)')
