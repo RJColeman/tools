@@ -43,7 +43,8 @@ class Converter:
 
         for c in sdat:
             self.cstring += str(self.dat[c])
-            self.cstring += str(' ')
+            if self.conversion.startswith('t'):
+                self.cstring += str(' ')
     
     def load(self):
         icol = 0
