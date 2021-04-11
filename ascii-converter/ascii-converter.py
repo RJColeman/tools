@@ -4,24 +4,43 @@ from os import path
 
 class Converter:
 
+    # convert from and to
     conversion = 'd2t'
+
+    # string to convert
     string = 'd2t'
+
+    # converted string
     cstring = ''
+
+    # conversion map
     dat = {}
 
     def __init__(self, args):
+        # if we have less than two args, die
         if len(args) < 2:
             self.usage(0)
 
+        # use command line opts to set variables
         self.setOpts(args)
+
+        # load the conversion map
         self.load()
+
+        # convert the string
         self.convert()
 
     def print_cstring(self):
         print(self.cstring)
 
     def convert(self):
-        sdat = self.string.split(' ') 
+
+        if self.conversion.startswith('t'):
+            sdat = list(self.string) 
+        else:
+            sdat = self.string.split(' ') 
+        print(sdat)
+
         for c in sdat:
             self.cstring += str(self.dat[c])
             self.cstring += str(' ')
