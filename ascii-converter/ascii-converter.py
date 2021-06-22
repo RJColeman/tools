@@ -103,9 +103,9 @@ class Converter:
          -c --conversion:  d2t ascii decimal to text 
                            h2t ascii hexadecimal to text 
                            b2t ascii binary to text 
-                           t2d ascii texxt to decimal
-                           t2h ascii texxt to hexadecimal
-                           t2b ascii texxt to binary
+                           t2d ascii text to decimal
+                           t2h ascii text to hexadecimal
+                           t2b ascii text to binary
          -s --string:      string to convert
 
     example decimal to text (d2t): 
